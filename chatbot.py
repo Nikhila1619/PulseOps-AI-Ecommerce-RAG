@@ -1,4 +1,3 @@
-
 import os
 from dotenv import load_dotenv
 
@@ -13,7 +12,8 @@ load_dotenv()
 # Initialize Groq LLM
 llm = ChatGroq(
     model="openai/gpt-oss-120b",
-    temperature=0
+    temperature=0,
+    api_key=os.getenv("GROQ_API_KEY")
 )
 
 # Load embeddings
@@ -30,7 +30,7 @@ vectorstore = FAISS.load_local(
 
 # Create prompt
 prompt = ChatPromptTemplate.from_template("""
-You are ShopSmart AI, an E-commerce Operations Assistant.
+You are PulseOps AI, an E-commerce Operations Assistant.
 
 Answer the question using only the following context.
 
@@ -47,7 +47,7 @@ Answer:
 """)
 
 print("\nWelcome to PulseOps AI!")
-print("Ask questions about inventory, demand, suppliers and deliveries.")
+print("Ask questions about company policies and operations.")
 print("Type 'exit' to stop.\n")
 
 while True:

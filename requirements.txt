@@ -8,3 +8,4 @@ faiss-cpu
 pypdf
 langchain-groq
 python-dotenv
+supabase
